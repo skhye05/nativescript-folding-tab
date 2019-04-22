@@ -1,0 +1,7 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+
+<GridLayout class="page p-20">
+    <FoldingTab [items]="items" verticalAlignment="bottom" (tabSelected)="onTabSelected($event)"></FoldingTab>
+</GridLayout>

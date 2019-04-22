@@ -1,0 +1,1 @@
+export * from './folding-tab.module';

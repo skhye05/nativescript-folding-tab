@@ -1,6 +1,9 @@
 {
   "nativescript": {
-    "id": "org.nativescript.demo"
+    "id": "org.nativescript.demo",
+    "tns-android": {
+      "version": "5.1.0"
+    }
   },
   "dependencies": {
     "nativescript-theme-core": "^1.0.4",
@@ -22,6 +25,8 @@
   },
   "scripts": {
     "build.plugin": "cd ../src && npm run build",
-    "ci.tslint": "npm i && tslint --config '../tslint.json' 'app/**/*.ts' --exclude '**/node_modules/**' --exclude '**/platforms/**'"
+    "ci.tslint": "npm i && tslint --config '../tslint.json' 'app/**/*.ts' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+    "ci.android.build": "npm run build.plugin && tns build android",
+    "ci.ios.build": "npm run build.plugin && tns build ios"
   }
 }
