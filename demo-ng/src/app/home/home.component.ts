@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FoldingTabItem } from 'nativescript-folding-tab';
+import { FoldingTabItem, } from 'nativescript-folding-tab';
 
 @Component({
     selector: "Home",
@@ -9,6 +9,8 @@ import { FoldingTabItem } from 'nativescript-folding-tab';
 export class HomeComponent implements OnInit {
 
     public items: FoldingTabItem[];
+    public title: string = 'Nearby';
+    public icon: string = 'ic_nearby_icon';
 
     constructor() {
         // Use the component constructor to inject providers.
@@ -24,9 +26,8 @@ export class HomeComponent implements OnInit {
     }
 
     public onTabSelected(args: any): void {
-        // vm.set('title', args.name.toUpperCase() + ' TAB!');
-        // vm.set('bg', vm.items[args.position].colorInactive);
-
-        console.log('tab selected ' + this.items[args.index].title + ' at index ' + args.index);
+        this.title = this.items[args.newIndex].title;
+        this.icon = this.items[args.newIndex].icon;
+        console.log('tab selected ' + this.items[args.newIndex].title + ' at index ' + args.newIndex);
     }
 }

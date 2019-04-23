@@ -18,3 +18,22 @@ components that have the btn class name.
 .btn {
     font-size: 18;
 }
+
+.action-bar,
+.page {
+    background-color: #B36A5E;
+    color: white;
+}
+
+.page {
+    font-family: 'Montserrat', 'Montserrat-Medium';
+}
+
+.bold {
+    font-family: 'Montserrat', 'Montserrat-Black';
+}
+
+Label,
+.h2 {
+    color: white;
+}

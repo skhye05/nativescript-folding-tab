@@ -1,4 +1,4 @@
-import { FoldingTabBase, FoldingTabItemBase, itemsProperty, mainIconProperty, radiusProperty, backgroundColorProperty } from './folding-tab.common';
+import { FoldingTabBase, FoldingTabItemBase, itemsProperty, mainIconProperty, radiusProperty, backgroundColorProperty, indicatorProperty } from './folding-tab.common';
 import * as app from 'tns-core-modules/application';
 import * as utils from 'tns-core-modules/utils/utils';
 import { Color } from 'tns-core-modules/color/color';
@@ -30,7 +30,7 @@ export class FoldingTab extends FoldingTabBase {
             onFoldingItemSelected: (item: android.view.MenuItem) => {
 
                 const index = owner.get().items.findIndex(v => {
-                    return utils.ad.resources.getId(':drawable/' + v.icon) === item.getItemId();
+                    return v.title.toLowerCase() === item.getTitle().toLowerCase();
                 });
 
                 owner.get().onItemSelected(index);
@@ -55,7 +55,7 @@ export class FoldingTab extends FoldingTabBase {
 
     createTabs(items: FoldingTabItem[]) {
         // if (!this.items) { this.items = items; }
-        const menu = new android.support.v7.view.menu.MenuBuilder(app.android.currentContext);
+        const menu = new android.support.v7.view.menu.MenuBuilder(app.android.context);
         for (let item of items) {
             let icon = utils.ad.resources.getId(':drawable/' + item.icon);
             menu.add(item.title).setIcon(icon);
@@ -77,7 +77,6 @@ export class FoldingTab extends FoldingTabBase {
         (<any>this.nativeView).owner = this;
         super.initNativeView();
         const icon = utils.ad.resources.getId(':drawable/' + this.mainIcon);
-        this.nativeView.setBgColor(new Color("red").android);
         this.nativeView.setRadius(100);
         this.nativeView.setMainIcon(icon);
 
@@ -111,7 +110,7 @@ export class FoldingTab extends FoldingTabBase {
      * Set Background Property
      */
     [backgroundColorProperty.setNative](value: Color) {
-        // this.nativeView.setBgColor(value.android);
+        this.nativeView.setBgColor(value.android);
     }
 
     /**
@@ -120,6 +119,14 @@ export class FoldingTab extends FoldingTabBase {
     [radiusProperty.setNative](value: number) {
         this.nativeView.setRadius(value);
     }
+
+    /**
+     * Set Indicator Property
+     */
+    [indicatorProperty.setNative](value: Color) {
+        this.nativeView.setSelectionColor(value.android);
+    }
+
 }
 
 export class FoldingTabItem extends FoldingTabItemBase {

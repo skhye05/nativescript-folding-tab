@@ -1,6 +1,12 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page" 
   xmlns:ui="nativescript-folding-tab">
+  <ActionBar title="{{ title }}" flat="true">
+  </ActionBar>
   <GridLayout class="p-20">
-    <ui:FoldingTab items="{{ items }}" verticalAlignment="bottom"/>
+    <StackLayout class="p-t-20" verticalAlignment="top">
+      <Image class="p-10" src="res://{{icon}}" width="100" height="100"/>
+      <Label class="text-center h2" text="{{ title }} tab has been selected!" textWrap="true"/>
+    </StackLayout>
+    <ui:FoldingTab items="{{ items }}" backgroundColor="#B36A5E" indicator="#EED7C5" verticalAlignment="bottom"/>
   </GridLayout>
 </Page>

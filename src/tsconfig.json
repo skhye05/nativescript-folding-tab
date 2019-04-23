@@ -21,13 +21,11 @@
         "noFallthroughCasesInSwitch": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "angular"
     ],
     "compileOnSave": false,
     "angularCompilerOptions": {
-        "genDir": ".",
-        "skipMetadataEmit": false,
-        "skipTemplateCodegen": true,
-        "debug": true
+        "skipTemplateCodegen": true
     }
 }

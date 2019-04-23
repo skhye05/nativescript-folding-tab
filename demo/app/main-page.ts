@@ -18,7 +18,7 @@ export function onFoldingTabLoaded(args) {
 }
 
 export function tabSelected(args: any) {
-    // vm.set('title', args.name.toUpperCase() + ' TAB!');
-    // vm.set('bg', vm.items[args.position].colorInactive);
-    console.log('tab selected ' + vm.items[args.index].title + ' at index ' + args.index);
+    vm.set('title', vm.items[args.newIndex].title);
+    vm.set('icon', vm.items[args.newIndex].icon);
+    console.log('tab selected ' + this.items[args.newIndex].title + ' at index ' + args.newIndex);
 }

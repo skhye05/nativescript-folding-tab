@@ -4,11 +4,13 @@ import { FoldingTabItem } from 'nativescript-folding-tab';
 export class HelloWorldModel extends Observable {
 
   public items: FoldingTabItem[];
+  public title: string = 'Nearby';
+  public icon: string = 'ic_nearby_icon';
 
   constructor() {
     super();
 
-    this.items =[
+    this.items = [
       new FoldingTabItem('Nearby', 'ic_nearby_icon'),
       new FoldingTabItem('Chat', 'ic_new_chat_icon'),
       new FoldingTabItem('Profile', 'ic_profile_icon'),

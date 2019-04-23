@@ -9,6 +9,7 @@ import { booleanConverter, Color } from 'tns-core-modules/ui/core/view-base';
  * Event interface for tab selected event
  */
 export interface OnItemSelectedEventData extends EventData {
+  object: FoldingTabBase;
   oldIndex: number;
   newIndex: number;
 }
@@ -146,6 +147,29 @@ export const radiusCssProperty = new CssProperty<Style, number>(
   }
 );
 radiusCssProperty.register(Style);
+
+/**
+ * Define indicator Color as property and css
+ */
+export const indicatorProperty = new Property<FoldingTabBase, Color>(
+  {
+    name: 'indicator',
+    equalityComparer: Color.equals,
+    valueConverter: v => new Color(v)
+  }
+);
+
+indicatorProperty.register(FoldingTabBase);
+
+export const indicatorCssProperty = new CssProperty<Style, Color>(
+  {
+    name: 'foldingTabIndicator',
+    cssName: 'folding-tab-indicator',
+    equalityComparer: Color.equals,
+    valueConverter: v => new Color(v)
+  }
+);
+indicatorCssProperty.register(Style);
 
 /**
  * Folding Tab Bar Item
