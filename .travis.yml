@@ -68,7 +68,7 @@ matrix:
       script: 
         - cd src && npm run build && npm pack
         - cd ../demo-ng && tns plugin add ../src/*.tgz
-        - npm i && tns build android --bundle --env.uglify --env.aot --env.snapshot
+        - cd ../demo-ng && npm i && tns build android --bundle --env.uglify --env.aot --env.snapshot
     - language: android
       os: linux
       env:
