@@ -12,7 +12,7 @@
 
       <FoldingTab
         :items="items"
-        backgroundColor="#B36A5E"
+        backgroundColor="#684756"
         indicator="#EED7C5"
         verticalAlignment="bottom"
         @tabSelected="onTabSelected"
