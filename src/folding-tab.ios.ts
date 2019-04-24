@@ -1,5 +1,5 @@
 // import { FoldingTabBarBase, FoldingTabBarItemBase } from './folding-tab.common';
 
-// export class FoldingTab extends FoldingTabBarBase {
+export class FoldingTab {
 
-// }
+}
